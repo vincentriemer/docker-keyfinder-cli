@@ -14,7 +14,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --no-cache --pull -t $CONTAINER_TEST_IMAGE .
+    - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
   tags:
     - docker

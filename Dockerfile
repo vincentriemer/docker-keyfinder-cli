@@ -4,7 +4,7 @@ FROM buildpack-deps:vivid
 RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list
 
 # install deps
-RUN apt-get clean && apt-get update && apt-get install -y \
+RUN apt-get clean && apt-get -qq update && apt-get -qq install -y \
         build-essential \
         qt5-default \
         libboost-all-dev \
