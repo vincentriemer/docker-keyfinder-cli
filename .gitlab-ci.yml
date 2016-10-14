@@ -18,14 +18,14 @@ build:
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
   tags:
-    - docker
+    - shell+docker
 test:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - bash test.sh $CONTAINER_TEST_IMAGE
+    - test.sh $CONTAINER_TEST_IMAGE
   tags:
-    - docker
+    - shell+docker
 
 release-image:
   stage: release
@@ -34,4 +34,4 @@ release-image:
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
   tags:
-    - docker
+    - shell+docker
