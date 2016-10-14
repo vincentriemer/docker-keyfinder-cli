@@ -30,6 +30,6 @@ RUN cd /tmp && \
     cd keyfinder-cli && \
     make && make install
 
-WORKDIR /workspace
-ENTRYPOINT ['keyfinder-cli']
+COPY entrypoint.sh /usr/local/bin/entrypoint
 
+ENTRYPOINT ["entrypoint"]

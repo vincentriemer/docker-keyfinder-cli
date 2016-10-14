@@ -2,6 +2,7 @@ image: docker:latest
 
 stages:
 - build
+- test
 - release
 
 variables:
@@ -16,6 +17,13 @@ build:
   script:
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
+  tags:
+    - docker
+test:
+  stage: test
+  script:
+    - docker pull $CONTAINER_TEST_IMAGE
+    - ./test.sh $CONTAINER_TEST_IMAGE
   tags:
     - docker
 
