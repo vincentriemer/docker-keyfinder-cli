@@ -24,7 +24,7 @@ test:
   script:
     - docker pull $CONTAINER_TEST_IMAGE
     - ls -la
-    - ./test.sh $CONTAINER_TEST_IMAGE
+    - source test.sh $CONTAINER_TEST_IMAGE
   tags:
     - docker
 
