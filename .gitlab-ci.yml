@@ -23,7 +23,7 @@ test:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker run -it --rm --entrypoint bash $CONTAINER_TEST_IMAGE test.sh
+    - docker run --rm --entrypoint bash $CONTAINER_TEST_IMAGE test.sh
   tags:
     - docker
 
