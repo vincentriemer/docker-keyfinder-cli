@@ -23,8 +23,7 @@ test:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - ls -la
-    - source test.sh $CONTAINER_TEST_IMAGE
+    - script -q -c "source test.sh $CONTAINER_TEST_IMAGE"
   tags:
     - docker
 
