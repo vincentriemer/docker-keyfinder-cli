@@ -31,5 +31,7 @@ RUN cd /tmp && \
     make && make install
 
 COPY entrypoint.sh /usr/local/bin/entrypoint
+COPY test-files /test
+COPY test.sh /test.sh
 
 ENTRYPOINT ["entrypoint"]

@@ -1,4 +1,4 @@
-image: soullivaneuh/docker-bash:latest
+image: docker:latest
 
 stages:
 - build
@@ -23,7 +23,7 @@ test:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - bash test.sh $CONTAINER_TEST_IMAGE
+    - docker run -it --rm --entrypoint bash $CONTAINER_TEST_IMAGE test.sh
   tags:
     - docker
 

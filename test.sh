@@ -27,7 +27,8 @@ expected="Cm"
 
 echo "Executing basic test..."
 
-raw_result="$(docker run --rm -it -v `pwd`/test-files/Cm.mp3:/test.mp3 $1 test.mp3)"
+# raw_result="$(docker run --rm -it -v `pwd`/test-files/Cm.mp3:/test.mp3 $1 test.mp3)"
+raw_result="$(keyfinder-cli /test/Cm.mp3)"
 actual="$(echo -e "${raw_result}" | tr -d '[[:space:]]')"
 
 assert_equal $actual $expected $LINENO
